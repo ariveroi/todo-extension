@@ -18,7 +18,7 @@ export const createFrame = async (document, list, sumary) => {
   inProgressSpan.innerText = "IP: " + sumary.inProgress;
   frame.appendChild(completedSpan);
   frame.appendChild(inProgressSpan);
-  // addEventListeners(frame);
+  addEventListeners(frame);
 };
 
 // export const createFrame = async (document) => {
@@ -44,24 +44,24 @@ export const createFrame = async (document, list, sumary) => {
 //   frame.appendChild(content);
 // };
 
-// const addEventListeners = (frame) => {
-//   // Expand the frame when hovering
-//   frame.addEventListener("mouseover", showFrameContent);
-//   frame.addEventListener("mouseout", hideFrameContent);
-//   frame.addEventListener("mousedown", (e) => replaceFrameContent(frame, e));
-// };
+const addEventListeners = (frame) => {
+  // Expand the frame when hovering
+  // frame.addEventListener("mouseover", showFrameContent);
+  // frame.addEventListener("mouseout", hideFrameContent);
+  frame.addEventListener("mousedown", (e) => replaceFrameContent(frame, e));
+};
 
-// const replaceFrameContent = (frame, e) => {
-//   const frameX = frame.offsetLeft;
-//   const mouseX = e.clientX;
-//   const moveAt = (e) => {
-//     frame.style.left = e.clientX - mouseX + frameX + "px";
-//   };
-//   document.addEventListener("mousemove", moveAt);
-//   frame.addEventListener("mouseup", () => {
-//     document.removeEventListener("mousemove", moveAt);
-//   });
-// };
+const replaceFrameContent = (frame, e) => {
+  const frameX = frame.offsetLeft;
+  const mouseX = e.clientX;
+  const moveAt = (e) => {
+    frame.style.left = e.clientX - mouseX + frameX + "px";
+  };
+  document.addEventListener("mousemove", moveAt);
+  frame.addEventListener("mouseup", () => {
+    document.removeEventListener("mousemove", moveAt);
+  });
+};
 
 // const showFrameContent = () => {
 //   document.querySelector(".content").classList.add("active");
