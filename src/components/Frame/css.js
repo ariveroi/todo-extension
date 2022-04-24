@@ -1,12 +1,16 @@
 export const frameStyle = `
 .frame {
-    width: 30px;
-    height: 30px;
-    background-color: red;
+    width: 63px;
+    height: 26px;
+    background-color: #64a0ed;
     position: fixed;
     top: 0px;
     right: 0px;
     z-index: 9999;
+    border-radius: 0.2em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .frame.active{
